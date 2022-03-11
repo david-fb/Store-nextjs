@@ -1,17 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProductItem from '@components/ProductItem';
-import useGetProducts from '@hooks/useGetProducts';
 import styles from '@styles/ProductList.module.scss';
-
-const API = 'https://plat-express-store.herokuapp.com/api/v1/products';
+import AppContext from '@context/AppContext';
 
 const ProductList = () => {
-	const products = useGetProducts(API);
-
+	const { state } = useContext(AppContext)
 	return (
 		<section className={styles["main-container"]}>
 			<div className={styles["ProductList"]}>
-				{products.map(product => (
+				{state.products.map(product => (
 					<ProductItem product={product} key={product.id} />
 				))}
 			</div>

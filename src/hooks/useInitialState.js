@@ -1,12 +1,14 @@
 import { useState } from 'react';
-
+import useGetProducts from '@hooks/useGetProducts';
 const initialState = {
+  products : [],
   cart: [],
   orderIsOpen: false,
   menuIsOpen: false,
 };
 
-const useInitialState = () => {
+const useInitialState = (products) => {
+  initialState.products = products;
   const [state, setState] = useState(initialState);
 
   const addToCart = (payload) => {

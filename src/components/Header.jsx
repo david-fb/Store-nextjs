@@ -8,36 +8,30 @@ import logo from '@logos/logo_yard_sale.svg';
 import AppContext from '@context/AppContext';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import styles from '@styles/Header.module.scss';
+import { useRouter } from 'next/router'
 
 const Header = () => {
 	const { state, toggleOrder, toggleMenu } = useContext(AppContext);
+	const router = useRouter();
 
 	return (
 		<>
 			<nav className={styles.Nav}>
-				<img src={menu.src} alt="menu" className={styles.menu} width={25} height={21}/>
+				<img src={menu.src} alt="menu" className={styles.menu}/>
+				<h1 className={styles.title}>store</h1>
 				<div className={styles["navbar-left"]}>
-					<Link href="/" passHref>
-						<img src={logo.src} alt="logo" className={styles["nav-logo"]}/>
-					</Link>
 					<ul>
-						<li>
+						<li className={styles[router.pathname == "/all" ? "active" : ""]}>
 							<Link href="/all">All</Link>
 						</li>
-						<li>
-							<Link href="/">Clothes</Link>
+						<li className={styles[router.pathname == "/toys" ? "active" : ""]}>
+							<Link href="/toys">Juguetes</Link>
 						</li>
-						<li>
-							<Link href="/">Electronics</Link>
+						<li className={styles[router.pathname == "/care-and-maternity" ? "active" : ""]}>
+							<Link href="/care-and-maternity">Cuidado y Maternidad</Link>
 						</li>
-						<li>
-							<Link href="/">Furnitures</Link>
-						</li>
-						<li>
-							<Link href="/">Toys</Link>
-						</li>
-						<li>
-							<Link href="/">Others</Link>
+						<li className={styles[router.pathname == "/clothes" ? "active" : ""]}>
+							<Link href="/clothes">Ropa</Link>
 						</li>
 					</ul>
 				</div>
