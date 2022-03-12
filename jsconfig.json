@@ -9,7 +9,8 @@
             "@icons/*":["assets/icons/*"],
             "@logos/*":["assets/logos/*"],
             "@context/*":["context/*"],
-            "@hooks/*":["hooks/*"]
+            "@hooks/*":["hooks/*"],
+            "@images/*":["assets/images/*"],
         },
     }
 }
