@@ -21,8 +21,8 @@ const Header = () => {
 				<h1 className={styles.title}>store</h1>
 				<div className={styles["navbar-left"]}>
 					<ul>
-						<li className={styles[router.pathname == "/all" ? "active" : ""]}>
-							<Link href="/all">All</Link>
+						<li className={styles[router.pathname == "/" ? "active" : ""]}>
+							<Link href="/">Inicio</Link>
 						</li>
 						<li className={styles[router.pathname == "/toys" ? "active" : ""]}>
 							<Link href="/toys">Juguetes</Link>

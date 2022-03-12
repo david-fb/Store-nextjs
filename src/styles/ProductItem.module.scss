@@ -1,6 +1,8 @@
 @import 'vars';
 
 .ProductItem {
+	display: flex;
+	flex-direction: column;
 	width: 240px;
 	background-color: $--white;
 	padding: 10px;
@@ -15,9 +17,9 @@
 }
 .product-info {
 	display: flex;
+	flex: 1;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
 	margin-top: 12px;
 }
 .product-info figure {

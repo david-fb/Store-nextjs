@@ -1,14 +1,12 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import ProductItem from '@components/ProductItem';
 import styles from '@styles/ProductList.module.scss';
-import AppContext from '@context/AppContext';
 
-const ProductList = () => {
-	const { state } = useContext(AppContext)
+const ProductList = ({products}) => {
 	return (
 		<section className={styles["main-container"]}>
 			<div className={styles["ProductList"]}>
-				{state.products.map(product => (
+				{products?.map(product => (
 					<ProductItem product={product} key={product.id} />
 				))}
 			</div>

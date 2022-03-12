@@ -6,7 +6,7 @@ const nextConfig = {
   },
   compress: true,
   images: {
-    domains: ['placeimg.com'],
+    domains: ['placeimg.com', 'pamibb.com', 'firebasestorage.googleapis.com'],
   }
 };
 

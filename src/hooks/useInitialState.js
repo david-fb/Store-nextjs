@@ -10,7 +10,6 @@ let initialState = {
 const useInitialState = (products, categories) => {
   initialState.products = products;
   initialState.categories = categories;
-  console.log(initialState);
   const [state, setState] = useState(initialState);
 
   const addToCart = (payload) => {

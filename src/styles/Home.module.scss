@@ -1,0 +1,40 @@
+@import 'vars';
+.header-container{
+  background: linear-gradient(180deg, rgba(41,111,225,1) 0%, rgba(41,111,225,0.9248074229691877) 28%, rgba(18,53,212,1) 100%);
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 100%;
+}
+
+.header-content{
+  position: relative;
+  align-self: center;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.header-content img{
+  margin-top: 280px;
+  height: 500px;
+}
+.content-text{
+  height: fit-content;
+}
+.content-text h2{
+  color: $--white;
+  font-size: 40px;
+}
+
+.content-text p{
+  color: $--white;
+  font-size: $--sm;
+  margin-top: 20px;
+}
+.content-text button{
+  width: 170px;
+  height: 40px;
+  font-size: $--md;
+  margin-top: 20px;
+}

@@ -1,0 +1,20 @@
+@import 'vars';
+
+.CategoryList {
+    width: fit-content;
+    margin: 130px auto 50px;
+}
+
+.CategoryList .title{
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.CategoryList .list {
+    background: $--white;
+    height: fit-content;
+    width: fit-content;
+    display: grid;
+    grid-template-columns: repeat(3, 240px);
+    gap: 60px;
+}
