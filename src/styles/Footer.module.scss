@@ -1,0 +1,23 @@
+@import "vars";
+.Footer {
+    background: $--black;
+    flex-direction: column;
+    color: $--white;
+    display: flex;
+}
+
+.Footer-nav{
+    display: flex;
+    width: 40%;
+    align-self: center;
+    margin: 20px;
+}
+.Footer-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
