@@ -1,15 +1,16 @@
-import useGetDataFromAPI from '@hooks/useGetDataFromAPI';
 import ProductList from '@containers/ProductList';
 import Head from 'next/head';
 import PawPatrolImage from '@images/Skye.png';
 import styles from '@styles/Home.module.scss';
+import useFetch from '@hooks/useFetch';
+import endPoints from '@services/api';
 
 export default function careAndMaternity() {
-  const data = useGetDataFromAPI("https://plat-express-store.herokuapp.com/api/v1/categories/3");
+  const category = useFetch(endPoints.categories.getCategory(3))
   return (
     <>
       <Head>
-        <title>React Shop</title>
+        <title>React Shop - Care & Maternity</title>
       </Head>
       <div className={styles["header-container"]}>
         <div className={styles["header-content"]}>
@@ -21,7 +22,7 @@ export default function careAndMaternity() {
           <img src={PawPatrolImage.src}/>
         </div>
       </div>
-      <ProductList products={data.products}/>
+      <ProductList products={category?.products}/>
     </>
   );
 }

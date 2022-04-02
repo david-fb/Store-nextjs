@@ -1,24 +1,20 @@
 import Header from '@components/Header';
 import AppContext from '@context/AppContext';
 import useInitialState from '@hooks/useInitialState';
-import useGetDataFromAPI from '@hooks/useGetDataFromAPI';
+import { SessionProvider } from 'next-auth/react';
 import '@styles/globals.scss';
 import Footer from '@components/Footer';
 
-const API = 'https://plat-express-store.herokuapp.com/api/v1';
-const productsAPI = `${API}/products`;
-const categoriesAPI = `${API}/categories`
-
 function MyApp({ Component, pageProps }) {
-  const products = useGetDataFromAPI(productsAPI);
-  const categories = useGetDataFromAPI(categoriesAPI)
-  const initialState = useInitialState(products, categories);
+  const initialState = useInitialState();
   return (
-    <AppContext.Provider value={initialState}>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
-    </AppContext.Provider>
+    <SessionProvider>
+      <AppContext.Provider value={initialState}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </AppContext.Provider>
+    </SessionProvider>
   );
 }
 

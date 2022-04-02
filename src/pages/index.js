@@ -1,13 +1,28 @@
-import { useContext } from 'react';
-import AppContext from '@context/AppContext';
+import { useState, useEffect } from 'react';
 import ProductList from '@containers/ProductList';
 import Head from 'next/head';
 import PawPatrolImage from '@images/PawPatrol2.png';
 import CategoryList from '@containers/CategoryList';
 import styles from '@styles/Home.module.scss';
+import axios from 'axios';
+import endPoints from '@services/api';
 
 export default function Home() {
-	const { state } = useContext(AppContext)
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function getProducts() {
+      try {
+        const response = await axios(endPoints.products.allProducts);
+        setProducts(response?.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getProducts();
+  }, [])
+
   return (
     <>
       <Head>
@@ -24,7 +39,7 @@ export default function Home() {
         </div>
       </div>
       <CategoryList />
-      <ProductList products={state.products}/>
+      <ProductList products={products?.rows}/>
     </>
   );
 }

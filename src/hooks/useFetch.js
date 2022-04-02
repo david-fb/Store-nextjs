@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const useGetDataFromAPI = (API) => {
+const useFetch = (endPoint) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
-      const response = await axios(API);
+      const response = await axios(endPoint);
       setData(response.data);
     }
     fetchData();
-  }, [API]);
+  }, [endPoint]);
 
   return data;
 };
 
-export default useGetDataFromAPI;
+export default useFetch;

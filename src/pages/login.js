@@ -1,19 +1,31 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import styles from '@styles/Login.module.scss';
-import logo from '@logos/logo_yard_sale.svg'
+import logo from '@logos/logo_yard_sale.svg';
+import { getSession, signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Login = () => {
 	const form = useRef(null);
+	const router = useRouter();
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 		const formData = new FormData(form.current);
 		const data = {
-			usename: formData.get('email'),
+			email: formData.get('email'),
 			password: formData.get('password')
 		}
-		console.log(data);
+		const res = await signIn('credentials', {
+			redirect: false,
+			email: data.email,
+			password: data.password,
+			callbackUrl: `${router.basePath}`
+		});
+		if(res?.error) {
+			console.log(res.error);
+		}
+		if(res?.url) router.push(res.url);
 	}
 
 	return (
@@ -41,5 +53,20 @@ const Login = () => {
 		</div >
 	);
 }
+
+export const getServerSideProps = async (context) => {
+	const session = await getSession(context);
+	if(session && session.user) {
+		return {
+			redirect: {
+				destination: '/',
+				permanent: false,
+			}
+		}
+	}
+	return {
+		props: {}
+	}
+};
 
 export default Login;

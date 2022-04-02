@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from '@styles/Menu.module.scss'
+import styles from '@styles/Menu.module.scss';
+import { signOut } from 'next-auth/react';
 
 
 const Menu = () => {
@@ -13,7 +14,7 @@ const Menu = () => {
 					<a href="/account">My account</a>
 				</li>
 				<li>
-					<a href="/">Sign out</a>
+					<button onClick={signOut}>Sign out</button>
 				</li>
 			</ul>
 		</div>
