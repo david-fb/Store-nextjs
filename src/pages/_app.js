@@ -5,10 +5,10 @@ import { SessionProvider } from 'next-auth/react';
 import '@styles/globals.scss';
 import Footer from '@components/Footer';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps} }) {
   const initialState = useInitialState();
   return (
-    <SessionProvider>
+    <SessionProvider session={session}>
       <AppContext.Provider value={initialState}>
         <Header />
         <Component {...pageProps} />

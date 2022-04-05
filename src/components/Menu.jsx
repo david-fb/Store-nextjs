@@ -6,17 +6,9 @@ import { signOut } from 'next-auth/react';
 const Menu = () => {
 	return (
 		<div className={styles.Menu}>
-			<ul>
-				<li>
-					<a href="/orders" className={styles["title"]}>My orders</a>
-				</li>
-				<li>
-					<a href="/account">My account</a>
-				</li>
-				<li>
-					<button onClick={signOut}>Sign out</button>
-				</li>
-			</ul>
+			<a href="/orders" className={styles["Menu-item"]}>My orders</a>
+			<a href="/account" className={styles["Menu-item"]}>My account</a>
+			<button onClick={signOut} className={styles["Menu-item"]}>Sign out</button>
 		</div>
 	);
 }

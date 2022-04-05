@@ -7,11 +7,11 @@
   position: fixed;
   right: 0;
   background-color: $--white;
-  top: 60px;
+  top: 0;
   bottom: 0;
   border-radius: 6px;
   border: 1px solid $--very-light-pink;
-  z-index: 999;
+  z-index: 1;
 }
 .title-container {
   display: flex;
@@ -68,17 +68,10 @@
   text-align: end;
   font-weight: bold;
 }
-
-.primary-button {
-  background-color: $--hospital-green;
-  border-radius: 8px;
-  border: none;
-  color: $--white;
-  width: 100%;
-  cursor: pointer;
-  font-size: $--md;
-  font-weight: bold;
-  height: 50px;
+.MyOrder-checkout {
+  width: fit-content;
+  margin: auto;
+  padding: 5px 20px;
 }
 @media (max-width: 640px) {
   .MyOrder {
