@@ -12,6 +12,7 @@
       "@hooks/*": ["hooks/*"],
       "@images/*": ["assets/images/*"],
       "@services/*": ["services/*"],
+      "@schemas/*": ["schemas/*"]
     }
   }
 }
