@@ -1,9 +1,9 @@
 import ProductList from '@containers/ProductList';
 import Head from 'next/head';
-import PawPatrolImage from '@images/Marshall.png';
-import styles from '@styles/Home.module.scss';
+import MarshallImage from '@images/Marshall.png';
 import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
+import Hero from '@components/Hero';
 
 export default function Clothes() {
   const category = useFetch(endPoints.categories.getCategory(1));
@@ -12,16 +12,7 @@ export default function Clothes() {
       <Head>
         <title>React Shop - Clothes</title>
       </Head>
-      <div className={styles["header-container"]}>
-        <div className={styles["header-content"]}>
-          <div className={styles["content-text"]}>
-            <h2>Collection PawPatrol</h2>
-            <p>Lorem ipsum</p>
-            <button className='primary-button'>MORE DETAILS</button>
-          </div>
-          <img src={PawPatrolImage.src}/>
-        </div>
-      </div>
+      <Hero image={MarshallImage.src} title={"Collection PawPatrol"} info={'Lorem Ipsum'} color={'red'}/>
       <ProductList products={category?.products}/>
     </>
   );

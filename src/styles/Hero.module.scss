@@ -1,0 +1,53 @@
+@import 'vars';
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
+  width: 100%;
+}
+
+.bg-blue {
+  background: linear-gradient(180deg, rgba(41, 111, 225, 1) 0%, rgba(41, 111, 225, 0.9248074229691877) 28%, rgba(18, 53, 212, 1) 100%);
+}
+.bg-blue-light {
+  background: linear-gradient(180deg, rgb(41, 213, 225) 0%, rgba(41, 213, 225, 0.925) 28%, rgb(18, 173, 212) 100%);
+}
+.bg-pink {
+  background: linear-gradient(180deg, rgb(225, 41, 185) 0%, rgba(225, 41, 185, 0.925) 28%, rgb(212, 18, 108) 100%);
+}
+.bg-red {
+  background: linear-gradient(180deg, rgb(225, 84, 41) 0%, rgba(225, 84, 41, 0.925) 28%, rgb(212, 57, 18) 100%);
+}
+
+.header-content {
+  position: relative;
+  align-self: center;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.header-content img {
+  margin-top: 280px;
+  height: 500px;
+}
+.content-text {
+  height: fit-content;
+}
+.content-text h2 {
+  color: $--white;
+  font-size: 40px;
+}
+
+.content-text p {
+  color: $--white;
+  font-size: $--sm;
+  margin-top: 20px;
+}
+.content-text button {
+  width: 170px;
+  height: 40px;
+  font-size: $--md;
+  margin-top: 20px;
+}

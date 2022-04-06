@@ -13,24 +13,33 @@ const MyOrder = () => {
     <aside className={styles.MyOrder}>
       <div className={styles['MyOrder-container']}>
         <div className={styles['title-container']}>
-          <Image className={styles[('more-clickable-area', 'pointer')]} src={arrow} alt="arrow" onClick={() => toggleOrder()} />
-          <p className="title">My order</p>
+          <Image className={styles['pointer']} src={arrow} alt="arrow" onClick={() => toggleOrder()} />
+          <p className={styles['title']}>My order</p>
         </div>
         <div className={styles['my-order-content']}>
-          <div className={styles['my-orders']}>
-            {state.cart.map((product) => (
-              <OrderItem product={product} key={`orderItem-${product.id}`} />
-            ))}
-          </div>
-          <div className={styles['order']}>
-            <p>
-              <span>Total</span>
-            </p>
-            <p>${sumTotal()}</p>
-          </div>
-          <a className={"primary-button" + " " + styles["MyOrder-checkout"]} href="/checkout">
-            Checkout
-          </a>
+          {state.cart.length > 0 ? (
+            <>
+              <div className={styles['my-orders']}>
+                {state.cart.map((product) => (
+                  <OrderItem product={product} key={`orderItem-${product.id}`} />
+                ))}
+              </div>
+              <div className={styles['order']}>
+                <p>
+                  <span>Total</span>
+                </p>
+                <p>${sumTotal()}</p>
+              </div>
+              <a className={'primary-button' + ' ' + styles['MyOrder-checkout']} href="/checkout">
+                Checkout
+              </a>
+            </>
+          )
+          : 
+          (
+            <p className={styles["empty-cart-text"]}>Cart is empty</p>
+          )
+          }
         </div>
       </div>
     </aside>

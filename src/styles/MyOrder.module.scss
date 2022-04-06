@@ -28,6 +28,7 @@
 .title {
   font-size: $--lg;
   font-weight: bold;
+  margin-left: 10px;
 }
 
 .my-order-content {
@@ -72,6 +73,10 @@
   width: fit-content;
   margin: auto;
   padding: 5px 20px;
+}
+.empty-cart-text {
+  color: $--dark-gray;
+  text-align: center;
 }
 @media (max-width: 640px) {
   .MyOrder {
