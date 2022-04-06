@@ -10,9 +10,9 @@ export default function Clothes() {
   return (
     <>
       <Head>
-        <title>React Shop - Clothes</title>
+        <title>Next Shop - Clothes</title>
       </Head>
-      <Hero image={MarshallImage.src} title={"Collection PawPatrol"} info={'Lorem Ipsum'} color={'red'}/>
+      <Hero image={MarshallImage.src} title={"Collection PawPatrol"} info={'Lorem Ipsum'} color={'red'} hasButton={true}/>
       <ProductList products={category?.products}/>
     </>
   );

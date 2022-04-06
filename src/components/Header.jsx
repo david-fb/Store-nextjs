@@ -31,7 +31,7 @@ const Header = () => {
               <Link href="/toys">Juguetes</Link>
             </li>
             <li className={styles[router.pathname == '/care-and-maternity' ? 'active' : '']}>
-              <Link href="/care-and-maternity">Cuidado y Maternidad</Link>
+              <Link href="/care-and-maternity">Cuidado</Link>
             </li>
             <li className={styles[router.pathname == '/clothes' ? 'active' : '']}>
               <Link href="/clothes">Ropa</Link>
@@ -49,7 +49,10 @@ const Header = () => {
                 </button>
               </li>
             ) : (
-              <Link href={'/login'}>Log in</Link>
+              <li className={styles['navbar-access']}>
+                <a href={'/login'} >Log in</a>
+                <a href={'/singup'} >Register</a>
+              </li>
             )}
             <li className={styles['navbar-shopping-cart']}>
               <button onClick={() => toggleOrder()}>

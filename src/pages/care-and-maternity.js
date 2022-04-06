@@ -10,9 +10,9 @@ export default function careAndMaternity() {
   return (
     <>
       <Head>
-        <title>React Shop - Care & Maternity</title>
+        <title>Next Shop - Care & Maternity</title>
       </Head>
-      <Hero title={"Collection PawPatrol"} info={'Lorem Ipsum'}  image={SkyeImage.src} color={'pink'}/>
+      <Hero title={"Collection PawPatrol"} info={'Lorem Ipsum'}  image={SkyeImage.src} color={'pink'} hasButton={true}/>
       <ProductList products={category?.products}/>
     </>
   );

@@ -27,9 +27,9 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>React Shop</title>
+        <title>Next Shop</title>
       </Head>
-      <Hero title={'Collection PawPatrol'} info={'lorem Ipsum'} image={PawPatrolImage.src}/>
+      <Hero title={'Collection PawPatrol'} info={'lorem Ipsum'} image={PawPatrolImage.src} hasButton={true}/>
       <CategoryList />
       <ProductList products={products?.rows}/>
     </>

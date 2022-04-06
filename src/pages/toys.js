@@ -10,9 +10,9 @@ export default function Toys() {
   return (
     <>
       <Head>
-        <title>React Shop - Toys</title>
+        <title>Next Shop - Toys</title>
       </Head>
-      <Hero title={'Collection PawPatrol'} info={"Lorem ipsum"} image={ChaseImage.src} color={'blue-light'}/>
+      <Hero title={'Collection PawPatrol'} info={"Lorem ipsum"} image={ChaseImage.src} color={'blue-light'} hasButton={true}/>
       <ProductList products={category?.products} />
     </>
   );
