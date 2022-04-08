@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import jsCookies from 'js-cookie';
 
 let initialState = {
   cart: [],
@@ -9,10 +10,20 @@ let initialState = {
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
+  useEffect(()=> {
+    if(jsCookies.get('cart') && jsCookies.get('cart') !== '') {
+      setState({...state, cart: [...JSON.parse(jsCookies.get('cart'))]});
+    }
+  }, []);
+
+  useEffect(()=> {
+    jsCookies.set('cart', JSON.stringify([...state.cart]));
+  }, [state?.cart]);
+
   const addToCart = (payload) => {
     setState({
       ...state,
-      cart: state.cart.includes(payload) ? state.cart : [...state.cart, payload],
+      cart: state.cart.some((item) => item['id'] === payload.id) ? state.cart : [...state.cart, payload],
     });
   };
 

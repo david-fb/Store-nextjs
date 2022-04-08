@@ -6,9 +6,12 @@ import AppContext from '@context/AppContext';
 const ProductItem = ({ product }) => {
   const { state, addToCart } = useContext(AppContext);
 
+  let inCart = state?.cart.some((item) => item['id'] === product.id);
+
   const handleClick = (item) => {
-    console.log('in cart: ', state.cart.includes(item));
-    addToCart(item);
+    if (!inCart) {
+      addToCart(item);
+    }
   };
 
   return (
@@ -19,8 +22,8 @@ const ProductItem = ({ product }) => {
           <p>{product.name}</p>
           <p>${product.price}</p>
         </div>
-        <figure className={styles['more-clickable-area']}>
-          <button onClick={() => handleClick(product)} className={`primary-button ${styles['add-to-cart-btn']}  ${state.cart.includes(product) ? styles['added-to-cart-btn'] : ''}`}>
+        <figure>
+          <button onClick={() => handleClick(product)} className={`primary-button ${styles['add-to-cart-btn']}  ${inCart ? styles['added-to-cart-btn'] : ''}`}>
             <span>+</span>
             ADD TO CART
           </button>

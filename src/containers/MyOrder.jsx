@@ -30,9 +30,11 @@ const MyOrder = () => {
                 </p>
                 <p>${sumTotal()}</p>
               </div>
-              <a className={'primary-button' + ' ' + styles['MyOrder-checkout']} href="/checkout">
-                Checkout
-              </a>
+              <Link href="/checkout">
+                <a className={'primary-button' + ' ' + styles['MyOrder-checkout']}>
+                  Checkout
+                </a>
+              </Link>
             </>
           )
           : 
