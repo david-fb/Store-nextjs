@@ -90,6 +90,10 @@
 	padding: 10px 0;
 	font-size: $--md;
 }
+.error-message {
+	font-size: $--sm;
+	color: lightcoral;
+}
 @media (max-width: 640px) {
 	.logo {
 		display: block;

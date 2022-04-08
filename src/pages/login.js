@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Head from 'next/head';
 import styles from '@styles/Login.module.scss';
-import logo from '@logos/logo_yard_sale.svg';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import lockImage from '@images/lock.png';
 
 const Login = () => {
   const form = useRef(null);
+  const [errorLogin, setErrorLogin] = useState(null);
   const router = useRouter();
 
   const handleSubmit = async (event) => {
@@ -24,7 +24,7 @@ const Login = () => {
       callbackUrl: `${router.basePath}`,
     });
     if (res?.error) {
-      console.log(res.error);
+      setErrorLogin('Email or password incorrect');
     }
     if (res?.url) router.push(res.url);
   };
@@ -40,7 +40,7 @@ const Login = () => {
           <img src={lockImage.src} />
         </div>
         <div className={styles['Login-container']}>
-          <img src={logo.src} alt="logo" className={styles['logo']} />
+          {errorLogin && <p className={styles['error-message']}>{errorLogin}</p>}
           <form action="/" className={styles['form']} ref={form}>
             <label htmlFor="email" className={styles['label']}>
               Email address

@@ -21,7 +21,6 @@ const useInitialState = () => {
 
   const addToCart = (payload) => {
     delete payload.description;
-    console.log(payload);
     setState({
       ...state,
       cart: state.cart.some((item) => item['id'] === payload.id) ? state.cart : [...state.cart, payload],
