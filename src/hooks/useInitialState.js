@@ -34,6 +34,10 @@ const useInitialState = () => {
     });
   };
 
+  const removeCart = () => {
+    setState({...state, cart: []});
+  };
+
   const toggleOrder = () => {
     setState({
       ...state,
@@ -57,6 +61,7 @@ const useInitialState = () => {
   return {
     state,
     addToCart,
+    removeCart,
     removeFromCart,
     toggleOrder,
     toggleMenu,

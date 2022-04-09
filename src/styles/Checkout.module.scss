@@ -82,6 +82,30 @@
 	font-size: $--md;
 	padding: 5px 15px;
 }
+.Checkout-loading {
+	display: grid;
+	place-items: center;
+	margin: auto;
+
+	p {
+		font-size: $--sm;
+		color: $--very-light-pink;
+	}
+}
+
+.checkout-noItems {
+	width: 100%;
+	display: grid;
+	place-items: center;
+
+	p {
+		color: $--very-light-pink;
+	}
+	a {
+		padding: 5px 15px;
+		font-size: $--md;
+	}
+}
 
 @media (min-width:980px) {
 	.Checkout-container {

@@ -9,7 +9,6 @@ const endPoints = {
   profile: {
     getProfile: `${API}/api/${VERSION}/profile`,
     getOrders: `${API}/api/${VERSION}/profile/my-orders`,
-    placeOrder: `${API}/api/${VERSION}/profile/place-order`,
   },
   products: {
     getProduct: (id) => `${API}/api/${VERSION}/products/${id}`,
@@ -25,6 +24,12 @@ const endPoints = {
     addCustomers: `${API}/api/${VERSION}/customers`,
     updateUser: `${API}/api/${VERSION}/users`,
   },
+  orders: {
+    placeOrder: `${API}/api/${VERSION}/profile/place-order`,
+    addItem: `${API}/api/${VERSION}/orders/add-item`,
+    getOrder: (id) => `${API}/api/${VERSION}/orders/${id}`,
+    getOrders: `${API}/api/${VERSION}/profile/my-orders`,
+  }
 };
 
 module.exports = endPoints;
