@@ -4,6 +4,7 @@ import styles from '@styles/Login.module.scss';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import lockImage from '@images/lock.png';
+import SimpleHeader from '@common/SimpleHeader';
 
 const Login = () => {
   const form = useRef(null);
@@ -35,10 +36,7 @@ const Login = () => {
         <title>Next Shop - Log In</title>
       </Head>
       <div className={styles['Login']}>
-        <div className={styles['Login-header']}>
-          <h2>Iniciar Sesión</h2>
-          <img src={lockImage.src} />
-        </div>
+        <SimpleHeader title={'Iniciar Sesión'} image={lockImage} color={'skyblue'}/>
         <div className={styles['Login-container']}>
           {errorLogin && <p className={styles['error-message']}>{errorLogin}</p>}
           <form action="/" className={styles['form']} ref={form}>
@@ -66,7 +64,7 @@ const Login = () => {
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
-  if (session && session.user) {
+  if (session && session?.user) {
     return {
       redirect: {
         destination: '/',

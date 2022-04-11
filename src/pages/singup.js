@@ -8,6 +8,7 @@ import styles from '@styles/CreateAccount.module.scss';
 import lockImage from '@images/lock.png';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import SimpleHeader from '@common/SimpleHeader';
 
 const CreateAccount = () => {
   const router = useRouter();
@@ -24,8 +25,8 @@ const CreateAccount = () => {
   const onSubmit = (data) => {
     addCustomer(data)
       .then((res) => {
-        alert('Successful user registration!')
-		router.push('/login');
+        alert('Successful user registration!');
+        router.push('/login');
       })
       .catch((err) => {
         if (err.response.status === 409) setEmailError('email already exists');
@@ -38,10 +39,7 @@ const CreateAccount = () => {
         <title>Next Shop - Create Account</title>
       </Head>
       <div className={styles['CreateAccount']}>
-        <div className={styles['Login-header']}>
-          <h2>Crear Cuenta</h2>
-          <img src={lockImage.src} />
-        </div>
+        <SimpleHeader title={'Crear Cuenta'} image={lockImage} color={'blue'}/>
         <div className={styles['CreateAccount-container']}>
           <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
             <div>
@@ -96,7 +94,7 @@ const CreateAccount = () => {
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
-  if (session && session.user) {
+  if (session && session?.user) {
     return {
       redirect: {
         destination: '/',

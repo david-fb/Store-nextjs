@@ -5,11 +5,12 @@ import { getSession } from 'next-auth/react';
 import OrderItem from '@components/OrderItem';
 import AppContext from '@context/AppContext';
 import styles from '@styles/Checkout.module.scss';
-import lockImage from '@images/shopping-bags.png';
+import bagsImage from '@images/shopping-bags.png';
 import { addOrder } from '@services/api/order';
 import LoadingCircle from '@common/loadingCircle';
 import useAlert from '@hooks/useAlert';
 import ConfirmAlert from '@common/confirmAlert';
+import SimpleHeader from '@common/SimpleHeader';
 
 const Checkout = ({ token }) => {
   const { state, sumTotal, removeCart } = useContext(AppContext);
@@ -41,10 +42,7 @@ const Checkout = ({ token }) => {
       </Head>
       <div className={styles['Checkout']}>
         {alert?.active && <ConfirmAlert alert={alert} handleClose={toggleAlert} destination={'/orders'} />}
-        <div className={styles['Login-header']}>
-          <h2>Checkout</h2>
-          <img src={lockImage.src} />
-        </div>
+        <SimpleHeader title={'Checkout'} image={bagsImage} color={'green'}/>
         <div className={styles['Checkout-container']}>
           {loading && (
             <div className={styles['Checkout-loading']}>
@@ -92,7 +90,7 @@ const Checkout = ({ token }) => {
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
-  if (session && session.user) {
+  if (session && session?.user) {
     return {
       props: {
         token: session.token,
