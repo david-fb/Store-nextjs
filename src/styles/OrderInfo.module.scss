@@ -1,0 +1,153 @@
+@import 'vars';
+.OrderInfo-container {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background: $--white;
+  border: 1px solid $--very-light-blue;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 13px;
+  padding: 3px 15px;
+  box-shadow: 3px 3px 5px $--very-light-blue;
+  margin-bottom: 10px;
+}
+
+.OrderInfo-images {
+  height: 100%;
+  display: flex;
+  gap: 10px;
+
+  img {
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+  }
+}
+
+.one-item-info {
+  flex: 1;
+  overflow: hidden;
+
+  p {
+    font-size: $--sm;
+  }
+
+  .product-name {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.second-item {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 1 /1;
+
+  img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+
+  p {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: $--white;
+    font-size: $--sm;
+    z-index: 2;
+  }
+
+  .product-cover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(68, 67, 67, 0.555);
+    z-index: 1;
+  }
+}
+
+.show-items {
+  position: absolute;
+  padding: 1px 15px;
+  font-size: $--md;
+}
+.date {
+  font-size: $--sm;
+}
+
+.OrderInfo-details {
+  background-color: $--very-light-blue;
+  min-height: 100px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+  .content {
+    height: 100px;
+    width: 100%;
+    padding: 5px 15px;
+    display: flex;
+    gap: 13px;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    .info {
+      flex: 1;
+    }
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+@media (max-width: 500px) {
+  .OrderInfo-container {
+    font-size: $--sm;
+  }
+  .show-items {
+      font-size: $--sm;
+  }
+  .OrderInfo-details {
+    font-size: $--sm;
+
+    .content {
+      .info {
+        overflow: hidden;
+        p {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .show-items {
+    right: 15px;
+    bottom: 5px;
+  }
+}
+
+@media (min-width: 601px) {
+  .show-items {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
