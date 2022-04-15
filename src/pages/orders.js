@@ -8,7 +8,6 @@ import SimpleHeader from '@common/SimpleHeader';
 import OrderInfo from '@components/OrderInfo';
 
 const Orders = ({ orders }) => {
-  console.log(orders);
   return (
     <>
       <Head>

@@ -53,7 +53,7 @@ const Login = () => {
             </button>
             <a href="/password-recovery">Forgot my password</a>
           </form>
-          <a href="/singup" className={styles['secondary-button'] + ' ' + styles['signup-button']}>
+          <a href="/singup" className={styles['secondary-button']}>
             Sign up
           </a>
         </div>
