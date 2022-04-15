@@ -48,8 +48,7 @@ export default NextAuth({
       // Persist the OAuth access_token to the token right after signin
       if (data) {
         try {
-          const { data: customer} = await axios(endPoints.users.getCustomer(data.user.id));
-          token.user = {...data.user, customer:customer};
+          token.user = data.user;
           token.accessToken = data.token;
         } catch (error) {
           console.log(error);
@@ -58,7 +57,8 @@ export default NextAuth({
       return token;
     },
     async session({ session, token }) {
-      session.user = token.user;
+      const { data: customer} = await axios(endPoints.users.getCustomer(token.user.id));
+      session.user = customer;
       session.token = token.accessToken;
       return session;
     },

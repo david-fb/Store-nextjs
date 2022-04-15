@@ -44,7 +44,7 @@ const Header = () => {
               <li className={styles['navbar-userName']}>
                 <button onClick={() => toggleMenu()}>
                   <Image src={userIcon} width={25} height={25}></Image>
-                  {`${session.user.customer.name} ${session.user.customer.lastName}`}
+                  {`${session.user.name} ${session.user.lastName}`}
                   <Image src={arrowDown} width={20} height={10}></Image>
                 </button>
               </li>
