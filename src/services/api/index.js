@@ -22,7 +22,7 @@ const endPoints = {
   users: {
     getCustomer: (id) => `${API}/api/${VERSION}/customers/${id}`,
     addCustomers: `${API}/api/${VERSION}/customers`,
-    updateUser: `${API}/api/${VERSION}/users`,
+    updateCustomer: (id) => `${API}/api/${VERSION}/customers/${id}`,
   },
   orders: {
     placeOrder: `${API}/api/${VERSION}/profile/place-order`,

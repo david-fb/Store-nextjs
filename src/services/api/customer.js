@@ -13,4 +13,10 @@ const addCustomer = async(body) => {
     return response.data;
 }
 
-module.exports = { addCustomer };
+const updateCustomer = async(id, body, token) => {
+    config.headers.authorization = `Bearer ${token}`;
+    const response = await axios.patch(endPoints.users.updateCustomer(id), body, config);
+    return response.data;
+}
+
+module.exports = { addCustomer, updateCustomer };

@@ -48,6 +48,5 @@ const updateCustomerSchema = Joi.object({
   name,
   lastName,
   phone,
-  userId,
 });
 module.exports = { createCustomerSchema, updateCustomerSchema };
