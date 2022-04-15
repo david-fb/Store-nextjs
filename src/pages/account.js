@@ -57,7 +57,7 @@ const MyAccount = ({ user, token }) => {
                 <p className={styles['value']}>{userData?.name}</p>
               ) : (
                 <>
-                  <input {...register('name')} type="text" name="name" defaultValue={userData?.name} />
+                  <input {...register('name')} className={styles['input']} type="text" name="name" defaultValue={userData?.name} />
                   <p>{errors?.name?.message}</p>
                 </>
               )}
@@ -69,7 +69,7 @@ const MyAccount = ({ user, token }) => {
                 <p className={styles['value']}>{userData?.lastName}</p>
               ) : (
                 <>
-                  <input {...register('lastName')} type="text" name="lastName" defaultValue={userData?.lastName} />
+                  <input {...register('lastName')} className={styles['input']} type="text" name="lastName" defaultValue={userData?.lastName} />
                   <p>{errors?.lastName?.message}</p>
                 </>
               )}
@@ -81,7 +81,7 @@ const MyAccount = ({ user, token }) => {
                 <p className={styles['value']}>{userData?.phone}</p>
               ) : (
                 <>
-                  <input {...register('phone')} type="text" name="phone" defaultValue={userData?.phone} />
+                  <input {...register('phone')} className={styles['input']} type="text" name="phone" defaultValue={userData?.phone} />
                   <p>{errors?.phone?.message}</p>
                 </>
               )}
@@ -89,7 +89,7 @@ const MyAccount = ({ user, token }) => {
               <label htmlFor="email" className={styles['label']}>
                 Email
               </label>
-              <p className={styles['value']}>{userData?.email}</p>
+              <p className={styles['value']}>{userData?.user.email}</p>
 
               <label htmlFor="password" className={styles['label']}>
                 Password
@@ -101,11 +101,11 @@ const MyAccount = ({ user, token }) => {
                 Edit
               </button>
             ) : (
-              <div>
+              <div className={styles['control-edit']}>
                 <button onClick={() => setIsEdit(false)} type="button" className={styles['secondary-button']}>
                   Cancel
                 </button>
-                <button type="submit" className={styles['secondary-button']}>
+                <button type="submit" className={'primary-button' + ' ' + styles['save-button']}>
                   Save
                 </button>
               </div>
