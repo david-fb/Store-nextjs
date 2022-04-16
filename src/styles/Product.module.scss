@@ -1,0 +1,86 @@
+@import 'vars';
+
+.Product-container {
+  flex: 1;
+  width: 80%;
+  align-self: center;
+  margin-bottom: 20px;
+}
+
+.Product-content {
+  display: flex;
+  margin-top: 100px;
+
+  .Product-Image {
+	  height: 600px;
+	  width: 50%;
+
+	  img {
+		  height: 100%;
+	  }
+  }
+
+  .Product-info {
+	  width: 50%;
+      display: flex;
+      flex-direction: column;
+	  padding-left: 100px;
+      gap: 5px;
+
+	  h2 {
+		  font-size: $--lg + 15px;
+	  }
+
+	  .Price {
+		  font-size: $--lg + 10px;
+	  }
+
+	  h3 {
+		  margin-top: 80px;
+		  font-size: $--lg;
+	  }
+	  .Description {
+		font-size: $--sm;
+		text-align: justify;
+	  }
+  }
+}
+
+.add-to-cart-btn {
+	position: relative;
+    height: 40px;
+    align-self: flex-start;
+    padding: 0 15px 0 45px;
+}
+.add-to-cart-btn span{
+	height: 40px;
+	width: 40px;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: radial-gradient(ellipse at center,
+		 $--primary-btn-dark-color 0%, 
+		 $--primary-btn-principal-color 30%, 
+		 $--primary-btn-light-color 100%);
+	top: 0;
+	left: 0;
+	border-bottom: 3px solid $--primary-btn-border-color;
+	border-right: 3px solid $--primary-btn-border-color;
+	border-radius: 50%;
+	font-weight: bold;
+	font-size: 20px;
+}
+.added-to-cart-btn {
+	cursor: not-allowed;
+	background: $--gray;
+	border-bottom: 3px solid $--dark-gray;
+}
+.added-to-cart-btn:hover {
+	background: $--gray;
+}
+.added-to-cart-btn span{
+	background: $--gray;
+	border-bottom: 3px solid $--dark-gray;
+	border-right: 3px solid $--dark-gray;
+}
