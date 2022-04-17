@@ -7,13 +7,15 @@ import styles from '@styles/Product.module.scss';
 import AppContext from '@context/AppContext';
 
 export default function Product({ product }) {
+  console.log(product);
   const { state, addToCart } = useContext(AppContext);
   let inCart = state?.cart.some((item) => item['id'] === product.id);
   const handleClick = (item) => {
     if (!inCart) {
-      addToCart(item);
+      addToCart({...item});
     }
   };
+  // Image zoom
   const resultRef = useRef(null);
   const lensRef = useRef(null);
   const imgRef = useRef(null);
