@@ -31,7 +31,7 @@ export default function Home() {
       </Head>
       <Hero title={'Collection PawPatrol'} info={'lorem Ipsum'} image={PawPatrolImage.src} hasButton={true}/>
       <CategoryList />
-      <ProductList products={products?.rows}/>
+      <ProductList products={products?.rows} title={'Catalog'}/>
     </>
   );
 }

@@ -3,15 +3,19 @@
 .ProductItem {
 	display: flex;
 	flex-direction: column;
-	width: 240px;
+	width: 100%;
 	background-color: $--white;
 	padding: 10px;
 	padding-bottom: 20px;
 	border-radius: 20px;
 }
-.ProductItem img {
-	width: 240px;
+.ProductItem a {
+	width: 220px;
 	height: 240px;
+	position: relative;
+	overflow: hidden;
+}
+.ProductItem a img {
 	border-radius: 20px;
 	object-fit: cover;
 }
@@ -85,15 +89,16 @@
 	border-bottom: 3px solid $--dark-gray;
 	border-right: 3px solid $--dark-gray;
 }
-@media (max-width: 640px) {
-	.cards-container {
-		grid-template-columns: repeat(auto-fill, 140px);
+
+@media (max-width:640px){
+	.ProductItem a {
+		width: 200px;
+		height: 240px;
 	}
-	.ProductItem {
-		width: 140px;
-	}
-	.ProductItem img {
-		width: 140px;
-		height: 140px;
+}
+@media (max-width:499px){
+	.ProductItem a {
+		width: 300px;
+		height: 320px;
 	}
 }

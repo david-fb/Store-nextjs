@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from '@styles/ProductItem.module.scss';
 import AppContext from '@context/AppContext';
 
@@ -16,9 +17,11 @@ const ProductItem = ({ product }) => {
 
   return (
     <div className={styles['ProductItem']}>
-      <a href={`/product/${product.id}`}>
-        <Image src={product.image} alt={product.name} width={240} height={240} />
-      </a>
+      <Link href={`/product/${product.id}`}>
+        <a>
+          <Image src={product.image} alt={product.name} layout='fill' />
+        </a>
+      </Link>
       <div className={styles['product-info']}>
         <div>
           <p>{product.name}</p>
