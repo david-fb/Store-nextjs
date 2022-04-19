@@ -13,7 +13,7 @@ export default function Clothes() {
         <title>Next Shop - Clothes</title>
       </Head>
       <Hero image={MarshallImage.src} title={"Collection PawPatrol"} info={'Lorem Ipsum'} color={'red'} hasButton={true}/>
-      <ProductList products={category?.products}/>
+      <ProductList products={category?.products} paddingTop={16}/>
     </>
   );
 }

@@ -13,7 +13,7 @@ export default function careAndMaternity() {
         <title>Next Shop - Care & Maternity</title>
       </Head>
       <Hero title={"Collection PawPatrol"} info={'Lorem Ipsum'}  image={SkyeImage.src} color={'pink'} hasButton={true}/>
-      <ProductList products={category?.products}/>
+      <ProductList products={category?.products} paddingTop={15}/>
     </>
   );
 }

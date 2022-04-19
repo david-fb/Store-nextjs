@@ -13,7 +13,7 @@ export default function Toys() {
         <title>Next Shop - Toys</title>
       </Head>
       <Hero title={'Collection PawPatrol'} info={"Lorem ipsum"} image={ChaseImage.src} color={'blue-light'} hasButton={true}/>
-      <ProductList products={category?.products} />
+      <ProductList products={category?.products} paddingTop={14}/>
     </>
   );
 }
