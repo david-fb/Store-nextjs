@@ -13,8 +13,8 @@ export default function OrderInfo({ items, total, date }) {
           {items?.length > 2 && (
             <div className={styles['second-item']}>
               <img src={items[1].image} alt={`image-${items[1].name}`} />
-              <p>{`${items.length} items`}</p>
               <div className={styles['product-cover']}></div>
+              <p>{`${items.length} items`}</p>
             </div>
           )}
           {items?.length === 2 && <img src={items[1].image} alt={`image-${items[1].name}`} />}
