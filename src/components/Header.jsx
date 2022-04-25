@@ -1,70 +1,22 @@
-import React, { useContext } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
+import { useContext } from 'react';
 import Menu from '@components/Menu';
 import MyOrder from '@containers/MyOrder';
-import menu from '@icons/icon_menu.svg';
 import AppContext from '@context/AppContext';
-import shoppingCart from '@icons/icon_shopping_cart.svg';
 import styles from '@styles/Header.module.scss';
-import { useRouter } from 'next/router';
-import { useSession } from 'next-auth/react';
-import userIcon from '@icons/user_icon.svg';
-import arrowDown from '@icons/arrow-down.svg';
+import Nav from './Nav';
+import NavMobile from './NavMobile';
 
 const Header = () => {
-  const { state, toggleOrder, toggleMenu } = useContext(AppContext);
-  const { data: session } = useSession();
-  const router = useRouter();
+  const { state } = useContext(AppContext);
 
   return (
     <>
-      <nav className={styles.Nav}>
-        <img src={menu.src} alt="menu" className={styles.menu} />
-        <h1 className={styles.title}>store</h1>
-        <div className={styles['navbar-left']}>
-          <ul>
-            <li className={styles[router.pathname == '/' ? 'active' : '']}>
-              <Link href="/">Inicio</Link>
-            </li>
-            <li className={styles[router.pathname == '/toys' ? 'active' : '']}>
-              <Link href="/toys">Juguetes</Link>
-            </li>
-            <li className={styles[router.pathname == '/care-and-maternity' ? 'active' : '']}>
-              <Link href="/care-and-maternity">Cuidado</Link>
-            </li>
-            <li className={styles[router.pathname == '/clothes' ? 'active' : '']}>
-              <Link href="/clothes">Ropa</Link>
-            </li>
-          </ul>
-        </div>
-        <div className={styles['navbar-right']}>
-          <ul>
-            {session?.user ? (
-              <li className={styles['navbar-userName']}>
-                <button onClick={() => toggleMenu()}>
-                  <Image src={userIcon} width={25} height={25}></Image>
-                  {`${session.user.name} ${session.user.lastName}`}
-                  <Image src={arrowDown} width={20} height={10}></Image>
-                </button>
-              </li>
-            ) : (
-              <li className={styles['navbar-access']}>
-                <a href={'/login'} >Log in</a>
-                <a href={'/singup'} >Register</a>
-              </li>
-            )}
-            <li className={styles['navbar-shopping-cart']}>
-              <button onClick={() => toggleOrder()}>
-                <Image src={shoppingCart} alt="shopping cart" />
-                {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
-              </button>
-            </li>
-          </ul>
-        </div>
+      <header className={styles.Header}>
+        <NavMobile />
+        <Nav />
         {state.menuIsOpen && <Menu />}
-      </nav>
-      {state.orderIsOpen && <MyOrder />}
+        {state.orderIsOpen && <MyOrder />}
+      </header>
     </>
   );
 };

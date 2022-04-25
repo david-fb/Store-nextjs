@@ -4,18 +4,19 @@ let initialState = {
   cart: [],
   orderIsOpen: false,
   menuIsOpen: false,
+  menuMobileIsOpen: false,
 };
 
 const useInitialState = () => {
   const [state, setState] = useState(initialState);
 
-  useEffect(()=> {
-    if(localStorage.getItem('cart') && localStorage.getItem('cart') !== '') {
-      setState({...state, cart: [...JSON.parse(localStorage.getItem('cart'))]});
+  useEffect(() => {
+    if (localStorage.getItem('cart') && localStorage.getItem('cart') !== '') {
+      setState({ ...state, cart: [...JSON.parse(localStorage.getItem('cart'))] });
     }
   }, []);
 
-  useEffect(()=> {
+  useEffect(() => {
     localStorage.setItem('cart', JSON.stringify([...state.cart]));
   }, [state?.cart]);
 
@@ -35,7 +36,7 @@ const useInitialState = () => {
   };
 
   const removeCart = () => {
-    setState({...state, cart: []});
+    setState({ ...state, cart: [] });
   };
 
   const toggleOrder = () => {
@@ -52,11 +53,20 @@ const useInitialState = () => {
     });
   };
 
+  const toggleMenuMobile = () => {
+    setState((state) => {
+      return {
+        ...state,
+        menuMobileIsOpen: !state.menuMobileIsOpen,
+      };
+    });
+  };
+
   const sumTotal = () => {
-		const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
-		const sum = state.cart.reduce(reducer, 0);
+    const reducer = (accumalator, currentValue) => accumalator + currentValue.price;
+    const sum = state.cart.reduce(reducer, 0);
     return sum;
-	}
+  };
 
   return {
     state,
@@ -65,6 +75,7 @@ const useInitialState = () => {
     removeFromCart,
     toggleOrder,
     toggleMenu,
+    toggleMenuMobile,
     sumTotal,
   };
 };

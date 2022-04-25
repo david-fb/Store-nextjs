@@ -1,0 +1,41 @@
+@import 'vars';
+.navbarMobile {
+  display: none;
+}
+@media (max-width: 800px) {
+  .navbarMobile {
+    display: flex;
+    width: 90%;
+    height: 70px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    &-menu {
+      position: relative;
+    }
+    &-logo {
+      position: relative;
+      height: 40px;
+      width: 40px;
+      cursor: pointer;
+    }
+  }
+  .navbar-shopping-cart {
+    position: relative;
+  }
+  .navbar-shopping-cart div {
+    color: $--white;
+    width: 16px;
+    height: 16px;
+    background-color: $--primary-btn-principal-color;
+    border-radius: 50%;
+    font-size: $--sm;
+    font-weight: bold;
+    position: absolute;
+    top: -6px;
+    right: -3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
