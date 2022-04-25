@@ -7,8 +7,8 @@
   flex-direction: column;
   z-index: 999;
   background-color: $--very-light-blue;
-  animation: menuIn .3s ease-in-out;
-  box-shadow: 0 0 16px rgba($color: $--black , $alpha: .28);
+  animation: menuIn 0.3s ease-in-out;
+  box-shadow: 0 0 16px rgba($color: $--black, $alpha: 0.28);
 
   &-close {
     align-self: flex-start;
@@ -36,6 +36,21 @@
     p {
       line-height: 1;
     }
+
+    &-login {
+      font-size: $--sm;
+      padding: 5px 15px;
+    }
+    &-register {
+      background-color: $--white;
+      border-radius: 50px;
+      border: 1px solid $--primary-btn-border-color;
+      color: $--primary-btn-border-color;
+      cursor: pointer;
+      font-size: $--sm;
+      font-weight: bold;
+      padding: 5px 15px;
+    }
   }
 
   &-nav {
@@ -52,30 +67,18 @@
     padding: 7px;
     &-item {
       display: flex;
-      padding: 7px;
-      font-size: $--md;
-      &:hover {
-        background-color: $--primary-btn-light-color;
-      }
-    }
-  }
-
-  &-control {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-    border-top: 1px solid #ddd;
-    padding: 14px;
-    &-user {
-        cursor: default;
-        font-size: $--md;
-    }
-    &-item {
-      display: flex;
+      gap: 10px;
       width: 100%;
+      height: 100%;
+      align-items: center;
       padding: 7px;
       font-size: $--md;
-
+      border-radius: 5px;
+      figure {
+        position: relative;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+      }
       &:hover {
         background-color: $--primary-btn-light-color;
       }
@@ -94,23 +97,23 @@
 }
 
 .menuOut {
-    animation: menuOut .3s ease-in-out;
+  animation: menuOut 0.3s ease-in-out;
 }
 
 @keyframes menuIn {
-    0%{
-        transform: translateX(-100%);
-    }
-    100%{
-        transform: translateX(0);
-    }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @keyframes menuOut {
-    0%{
-        transform: translateX(0);
-    }
-    100%{
-        transform: translateX(-100%);
-    }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

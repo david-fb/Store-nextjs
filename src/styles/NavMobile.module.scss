@@ -12,6 +12,8 @@
     align-items: center;
     &-menu {
       position: relative;
+      height: 35px;
+      aspect-ratio: 1 / 1;
     }
     &-logo {
       position: relative;

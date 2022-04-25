@@ -3,7 +3,7 @@ import AppContext from '@context/AppContext';
 import MenuMobile from './MenuMobile';
 import Image from 'next/image';
 import Link from 'next/link';
-import menu from '@icons/icon_menu.svg';
+import menuIcon from '@icons/menu-icon.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import NextJSIcon from '@icons/next-js.svg';
 import styles from '@styles/NavMobile.module.scss';
@@ -14,7 +14,7 @@ export default function NavMobile() {
   return (
     <section className={styles['navbarMobile']}>
       <button onClick={toggleMenuMobile} className={styles['navbarMobile-menu']}>
-        <Image src={menu} alt="menu" />
+        <Image src={menuIcon} alt="menu" layout='fill'/>
       </button>
       <Link href={'/'}>
         <figure className={styles['navbarMobile-logo']} title="Next Shop">
