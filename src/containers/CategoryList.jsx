@@ -18,6 +18,9 @@ const CategoryList = () => {
             }
         }
         getCategories();
+        return() => {
+            setCategories([]);
+        }
     }, []);
 
 	return (
