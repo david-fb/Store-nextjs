@@ -9,7 +9,9 @@ import styles from '@styles/Footer.module.scss';
 
 const Footer = () => {
   const copyToClipboard = () => {
-    navigator.clipboard.writeText('davidbasto01@gmail.com');
+    if(navigator && navigator.clipboard && navigator.clipboard.writeText)
+      return navigator.clipboard.writeText('davidbasto01@gmail.com');
+    return Promise.reject('The Clipboard API is not avaible');
   }
   return (
     <footer className={styles.Footer}>
