@@ -27,9 +27,11 @@
   display: flex;
   align-items: center;
 }
-.header-content img {
+.header-content figure {
+  position: relative;
   margin-top: 280px;
   height: 500px;
+  width: 100%;
 }
 .content-text {
   height: fit-content;
@@ -37,7 +39,7 @@
   flex-direction: column;
   gap: 20px;
 }
-.content-text h2 {
+.content-text h1 {
   color: $--white;
   font-size: 40px;
 }
@@ -56,14 +58,14 @@
   .header-container {
     height: 430px;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 210px;
     height: 430px;
   }
   .content-text {
     gap: 15px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 35px;
   }
   
@@ -80,14 +82,14 @@
   .header-container {
     height: 400px;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 190px;
     height: 400px;
   }
   .content-text {
     gap: 12px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 32px;
   }
   
@@ -108,14 +110,14 @@
     width: 80%;
     justify-content: center;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 180px;
     height: 350px;
   }
   .content-text {
     gap: 13px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 30px;
   }
   
@@ -132,14 +134,14 @@
   .header-container {
     height: 300px;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 155px;
     height: 300px;
   }
   .content-text {
     gap: 9px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 25px;
   }
   
@@ -156,14 +158,14 @@
   .header-container {
     height: 250px;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 130px;
     height: 250px;
   }
   .content-text {
     gap: 7px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 22px;
   }
   
@@ -180,7 +182,7 @@
   .header-container {
     height: 200px;
   }
-  .header-content img {
+  .header-content figure {
     margin-top: 100px;
     height: 190px;
   }
@@ -188,7 +190,7 @@
     gap: 4px;
     margin-top: 50px;
   }
-  .content-text h2 {
+  .content-text h1 {
     font-size: 20px;
   }
   
