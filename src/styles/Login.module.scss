@@ -9,16 +9,8 @@
 	background-color: $--white;
 }
 .Login-container {
-	display: grid;
-	grid-template-rows: auto 1fr auto;
 	width: 300px;
-	margin-top: 100px;
-}
-.logo {
-	width: 150px;
-	margin-bottom: 48px;
-	justify-self: center;
-	display: none;
+	margin: 100px auto 0;
 }
 .form {
 	display: flex;
@@ -70,9 +62,4 @@
 .error-message {
 	font-size: $--sm;
 	color: lightcoral;
-}
-@media (max-width: 640px) {
-	.logo {
-		display: block;
-	}
 }
