@@ -49,3 +49,7 @@ button {
 .primary-button:hover{
   background: $--primary-btn-principal-color;
 }
+.error-message {
+	font-size: $--sm - 2px;
+	color: $--error-color;
+}
