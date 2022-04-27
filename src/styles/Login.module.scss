@@ -59,7 +59,20 @@
 	padding: 10px 0;
 	font-size: $--md;
 }
-.error-message {
-	font-size: $--sm;
-	color: lightcoral;
+@media (max-width: 460px){
+	.Login-container{
+		margin: 70px auto;
+	}
+}
+@media (max-width: 360px){
+	.Login-container{
+		width: 270px;
+		margin: 60px auto;
+	}
+	.login-button {
+		height: 40px;
+	}
+	.secondary-button {
+		height: 40px;
+	}
 }

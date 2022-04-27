@@ -3,7 +3,7 @@ import Head from 'next/head';
 import styles from '@styles/Login.module.scss';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import lockImage from '@images/lock.png';
+import lockImage from '@images/log-in.png';
 import SimpleHeader from '@common/SimpleHeader';
 
 const Login = () => {
@@ -36,9 +36,9 @@ const Login = () => {
         <title>Next Shop - Log In</title>
       </Head>
       <div className={styles['Login']}>
-        <SimpleHeader title={'Iniciar Sesión'} image={lockImage} color={'skyblue'}/>
+        <SimpleHeader title={'Log In'} image={lockImage} color={'skyblue'}/>
         <div className={styles['Login-container']}>
-          {errorLogin && <p className={styles['error-message']}>{errorLogin}</p>}
+          {errorLogin && <p className={'error-message'}>{errorLogin}</p>}
           <form action="/" className={styles['form']} ref={form}>
             <label htmlFor="email" className={styles['label']}>
               Email address
@@ -53,7 +53,7 @@ const Login = () => {
             </button>
             <a href="/password-recovery">Forgot my password</a>
           </form>
-          <a href="/singup" className={styles['secondary-button']}>
+          <a href="/signup" className={styles['secondary-button']}>
             Sign up
           </a>
         </div>
