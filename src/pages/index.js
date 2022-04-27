@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import ProductList from '@containers/ProductList';
 import Head from 'next/head';
 import CategoryList from '@containers/CategoryList';
-import styles from '@styles/Home.module.scss';
 import axios from 'axios';
 import endPoints from '@services/api';
 import Hero from '@components/Hero';
