@@ -5,7 +5,7 @@ import { joiResolver } from '@hookform/resolvers/joi';
 import { createCustomerSchema } from '@schemas/customerSchema';
 import { addCustomer } from '@services/api/customer.js';
 import styles from '@styles/CreateAccount.module.scss';
-import lockImage from '@images/lock.png';
+import lockImage from '@images/sign-up.png';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import SimpleHeader from '@common/SimpleHeader';
@@ -24,7 +24,7 @@ const CreateAccount = () => {
 
   const onSubmit = (data) => {
     addCustomer(data)
-      .then((res) => {
+      .then(() => {
         alert('Successful user registration!');
         router.push('/login');
       })
@@ -39,7 +39,7 @@ const CreateAccount = () => {
         <title>Next Shop - Create Account</title>
       </Head>
       <div className={styles['CreateAccount']}>
-        <SimpleHeader title={'Crear Cuenta'} image={lockImage} color={'blue'}/>
+        <SimpleHeader title={'Register'} image={lockImage} color={'skyblue'} />
         <div className={styles['CreateAccount-container']}>
           <form onSubmit={handleSubmit(onSubmit)} className={styles['form']}>
             <div>
@@ -48,7 +48,7 @@ const CreateAccount = () => {
                   Name
                 </label>
                 <input {...register('name')} type="text" id="name" placeholder="Name" className={styles['input'] + ' ' + styles['input-name']} />
-                <p>{errors?.name?.message}</p>
+                <p className="error-message">{errors?.name?.message}</p>
               </div>
 
               <div className={styles['form-item']}>
@@ -56,7 +56,7 @@ const CreateAccount = () => {
                   Last name
                 </label>
                 <input {...register('lastName')} type="text" id="lastName" placeholder="last name" className={styles['input'] + ' ' + styles['input-name']} />
-                <p>{errors?.lastName?.message}</p>
+                <p className="error-message">{errors?.lastName?.message}</p>
               </div>
 
               <div className={styles['form-item']}>
@@ -64,7 +64,7 @@ const CreateAccount = () => {
                   Phone
                 </label>
                 <input {...register('phone')} type="text" id="phone" placeholder="phone" className={styles['input'] + ' ' + styles['input-name']} />
-                <p>{errors?.phone?.message}</p>
+                <p className="error-message">{errors?.phone?.message}</p>
               </div>
 
               <div className={styles['form-item']}>
@@ -72,8 +72,8 @@ const CreateAccount = () => {
                   Email
                 </label>
                 <input {...register('user.email')} type="text" id="email" placeholder="correo@example.com" className={styles['input'] + ' ' + styles['input-email']} />
-                {emailError && <p>{emailError}</p>}
-                <p>{errors?.user?.email?.message}</p>
+                {emailError && <p className="error-message">{emailError}</p>}
+                <p className="error-message">{errors?.user?.email?.message}</p>
               </div>
 
               <div className={styles['form-item']}>
@@ -81,7 +81,7 @@ const CreateAccount = () => {
                   Password
                 </label>
                 <input {...register('user.password')} type="password" id="password" placeholder="*********" className={styles['input'] + ' ' + styles['input-password']} />
-                <p>{errors?.user?.password?.message}</p>
+                <p className="error-message">{errors?.user?.password?.message}</p>
               </div>
             </div>
             <input type="submit" value="Create" className={styles['create-button'] + ' ' + 'primary-button'} />

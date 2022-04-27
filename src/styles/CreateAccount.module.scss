@@ -34,11 +34,6 @@
 }
 .form-item {
   margin-bottom: 22px;
-
-  p {
-    color: red;
-    font-size: $--sm;
-  }
 }
 .create-button {
   margin-top: 14px;
@@ -47,4 +42,18 @@
   font-size: $--md;
   border: none;
   border-bottom: 3px solid $--primary-btn-border-color;
+}
+@media (max-width: 460px){
+	.CreateAccount-container{
+		margin: 70px auto;
+	}
+}
+@media (max-width: 360px){
+	.CreateAccount-container{
+		width: 270px;
+		margin: 60px auto;
+	}
+	.create-button {
+		height: 40px;
+	}
 }
