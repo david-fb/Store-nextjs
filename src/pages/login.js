@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Head from 'next/head';
+import Link from 'next/link';
 import styles from '@styles/Login.module.scss';
 import { getSession, signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
@@ -36,7 +37,7 @@ const Login = () => {
         <title>Next Shop - Log In</title>
       </Head>
       <div className={styles['Login']}>
-        <SimpleHeader title={'Log In'} image={lockImage} color={'skyblue'}/>
+        <SimpleHeader title={'Log In'} image={lockImage} color={'green2'} />
         <div className={styles['Login-container']}>
           {errorLogin && <p className={'error-message'}>{errorLogin}</p>}
           <form action="/" className={styles['form']} ref={form}>
@@ -51,11 +52,15 @@ const Login = () => {
             <button onClick={handleSubmit} className={'primary-button' + ' ' + styles['login-button']}>
               Log in
             </button>
-            <a href="/password-recovery">Forgot my password</a>
+            <Link href="/password-recovery">
+              <a href="dummy">Forgot my password</a>
+            </Link>
           </form>
-          <a href="/signup" className={styles['secondary-button']}>
-            Sign up
-          </a>
+          <Link href="/signup">
+            <a href="dummy" className={styles['secondary-button']}>
+              Sign up
+            </a>
+          </Link>
         </div>
       </div>
     </>
