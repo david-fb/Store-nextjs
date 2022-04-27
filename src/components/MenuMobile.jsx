@@ -23,7 +23,6 @@ const MenuMobile = () => {
   const menuMobileRef = useRef();
 
   const closeMenuMobile = () => {
-    console.log('entra');
     menuMobileRef.current.classList.add(styles['menuOut']);
     setTimeout(() => {
       toggleMenuMobile();
