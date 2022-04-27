@@ -1,38 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import AppContext from '@context/AppContext';
 import CategoryItem from '@components/CategoryItem';
+import { getCategories } from '@services/api/categories';
+import CategoryItemLoading from '@components/skeletonLoading/CategoryItem';
 import styles from '@styles/CategoryList.module.scss';
-import useFetch from '@hooks/useFetch';
-import endPoints from '@services/api';
-import axios from 'axios';
+
+const categoriesLoading = [];
+for (let i = 0; i < 3; i++) {
+  categoriesLoading.push(<CategoryItemLoading key={`categoryItem-loading-${i}`} />);
+}
 
 const CategoryList = () => {
-    const [categories, setCategories] = useState([]);
-    useEffect(() => {
-        async function getCategories(){
-            try {
-                const response = await axios.get(endPoints.categories.getCategories);
-                setCategories(response.data)
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getCategories();
-        return() => {
-            setCategories([]);
-        }
-    }, []);
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsloading] = useState(true);
 
-	return (
-        <div className={styles.CategoryList}>
-            <h2 className={styles["title"]}>Categories</h2>
-            <div className={styles["list"]}>
-                {categories?.map(category => (
-                    <CategoryItem category={category} key={category.id} />
-                ))}
-            </div>
-        </div>
-	);
+  useEffect(() => {
+    getCategories().then((res) => {
+      setCategories(res);
+    });
+    return () => {
+      setCategories([]);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (categories?.length) setIsloading(false);
+  }, [categories]);
+
+  return (
+    <div className={styles.CategoryList}>
+      <h2 className={styles['title']}>Categories</h2>
+      <div className={styles['list']}>
+        {isLoading && categoriesLoading}
+        {!isLoading && categories?.map((category) => <CategoryItem category={category} key={category.id} />)}
+      </div>
+    </div>
+  );
 };
 
 export default CategoryList;

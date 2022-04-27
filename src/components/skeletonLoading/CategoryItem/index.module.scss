@@ -1,0 +1,110 @@
+@import './../loading';
+.CategoryItemLoading {
+  display: flex;
+  flex-direction: column;
+
+  &-image {
+    height: 310px;
+    border-end-start-radius: 40%;
+    border-end-end-radius: 20%;
+    border-start-start-radius: 25%;
+    border-start-end-radius: 25%;
+    transform: rotate(2deg);
+  }
+  &-info {
+    display: flex;
+    width: 80%;
+    margin-top: 20px;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    &-text {
+      width: 80px;
+      height: 25px;
+      border-radius: 5px;
+    }
+    &-link {
+      width: 40px;
+      height: 30px;
+      border-radius: 50px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .CategoryItemLoading-image {
+    height: 290px;
+  }
+}
+
+@media (max-width: 830px) {
+  .CategoryItemLoading-image {
+    height: 270px;
+  }
+
+  .CategoryItemLoading-info-link {
+    width: 38px;
+    height: 28px;
+  }
+}
+
+@media (max-width: 760px) {
+  .CategoryItemLoading-image {
+    height: 250px;
+  }
+  .CategoryItemLoading-info-text {
+    width: 76px;
+    height: 22px;
+  }
+  .CategoryItemLoading-info-link {
+    width: 36px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 690px) {
+  .CategoryItemLoading-image {
+    height: 225px;
+  }
+  .CategoryItemLoading-info {
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 5px;
+  }
+  .CategoryItemLoading-info-text {
+    width: 76px;
+    height: 22px;
+  }
+  .CategoryItemLoading-info-link {
+    width: 36px;
+    height: 26px;
+  }
+}
+
+@media (max-width: 600px) {
+  .CategoryItemLoading-image {
+    height: 195px;
+  }
+  .CategoryItemLoading-info-text {
+    width: 72px;
+    height: 20px;
+  }
+  .CategoryItemLoading-info-link {
+    width: 35px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 530px) {
+  .CategoryItemLoading-image {
+    height: 165px;
+  }
+  .CategoryItemLoading-info-text {
+    width: 70px;
+    height: 20px;
+  }
+  .CategoryItemLoading-info-link {
+    width: 34px;
+    height: 24px;
+  }
+}
