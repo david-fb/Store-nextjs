@@ -12,7 +12,7 @@ const CategoryItem = ({ category }) => {
   return (
     <div className={styles.CategoryItem}>
       <figure className={styles['image-container']}>
-        <Image src={category.image} layout="fill" priority objectFit="scale-down" alt={`category-image-${category.name}`} />
+        <Image src={category.image} layout="fill" priority objectFit="scale-down" alt="" />
       </figure>
       <div className={styles['info-container']}>
         <p>{category.name}</p>
