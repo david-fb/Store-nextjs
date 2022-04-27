@@ -5,6 +5,7 @@ const endPoints = {
   auth: {
     login: `${API}/api/${VERSION}/auth/login`,
     recoveryPassword: `${API}/api/${VERSION}/auth/recovery`,
+    changePasswordFromToken: `${API}/api/${VERSION}/auth/change-password`,
   },
   profile: {
     getProfile: `${API}/api/${VERSION}/profile`,

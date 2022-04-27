@@ -17,4 +17,13 @@ const sendRecoveryMail = async (body) => {
     }
 }
 
-module.exports = { sendRecoveryMail };
+const changePasswordFromToken = async (body) => {
+    try {
+        const response = await axios.post(endPoints.auth.changePasswordFromToken, body, config);
+        return response.status;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+module.exports = { sendRecoveryMail, changePasswordFromToken };
