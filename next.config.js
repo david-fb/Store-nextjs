@@ -3,8 +3,10 @@ const nextConfig = {
   reactStrictMode: true,
   compress: true,
   images: {
-    domains: ['placeimg.com', 'pamibb.com', 'firebasestorage.googleapis.com'],
-  }
+    domains: ['firebasestorage.googleapis.com'],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;
