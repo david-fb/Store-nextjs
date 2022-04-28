@@ -64,7 +64,7 @@ const MenuMobile = () => {
       </button>
       <div className={styles['MenuMobile-user']}>
         <figure>
-          <Image src={userIcon} layout="fill" />
+          <Image src={userIcon} layout="fill" alt="" />
         </figure>
         {session?.user ? (
           <p>
@@ -74,12 +74,12 @@ const MenuMobile = () => {
         ) : (
           <>
             <Link href={'/login'}>
-              <a onClick={closeMenuMobile} className={`primary-button ${styles['MenuMobile-user-login']}`}>
+              <a href="dummy" onClick={closeMenuMobile} className={`primary-button ${styles['MenuMobile-user-login']}`}>
                 Log in
               </a>
             </Link>
             <Link href={'/signup'}>
-              <a onClick={closeMenuMobile} className={`${styles['MenuMobile-user-register']}`}>
+              <a href="dummy" onClick={closeMenuMobile} className={`${styles['MenuMobile-user-register']}`}>
                 Register
               </a>
             </Link>
@@ -89,11 +89,11 @@ const MenuMobile = () => {
       <ul className={styles['MenuMobile-main']}>
         <li>
           <Link href="/">
-            <a onClick={closeMenuMobile} className={`${router.pathname == '/' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+            <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
               <figure>
-                <Image src={homeIcon} layout="fill" />
+                <Image src={homeIcon} layout="fill" alt="" />
               </figure>
-              Inicio
+              Home
             </a>
           </Link>
         </li>
@@ -101,9 +101,9 @@ const MenuMobile = () => {
           <>
             <li>
               <Link href={'/account'}>
-                <a onClick={closeMenuMobile} className={`${router.pathname == '/account' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+                <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/account' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
                   <figure>
-                    <Image src={accountIcon} layout="fill" />
+                    <Image src={accountIcon} layout="fill" alt="" />
                   </figure>
                   Account
                 </a>
@@ -111,9 +111,9 @@ const MenuMobile = () => {
             </li>
             <li>
               <Link href={'/orders'}>
-                <a onClick={closeMenuMobile} className={`${router.pathname == '/orders' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+                <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/orders' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
                   <figure>
-                    <Image src={ordersIcon} layout="fill" />
+                    <Image src={ordersIcon} layout="fill" alt="" />
                   </figure>
                   Orders
                 </a>
@@ -123,31 +123,31 @@ const MenuMobile = () => {
         )}
         <li>
           <Link href="/toys">
-            <a onClick={closeMenuMobile} className={`${router.pathname == '/toys' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+            <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/toys' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
               <figure>
-                <Image src={toysIcon} layout="fill" />
+                <Image src={toysIcon} layout="fill" alt="" />
               </figure>
-              Juguetes
+              Toys
             </a>
           </Link>
         </li>
         <li>
           <Link href="/care-and-maternity">
-            <a onClick={closeMenuMobile} className={`${router.pathname == '/care-and-maternity' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+            <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/care-and-maternity' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
               <figure>
-                <Image src={careIcon} layout="fill" />
+                <Image src={careIcon} layout="fill" alt="" />
               </figure>
-              Cuidado
+              Care
             </a>
           </Link>
         </li>
         <li>
           <Link href="/clothes">
-            <a onClick={closeMenuMobile} className={`${router.pathname == '/clothes' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
+            <a href="dummy" onClick={closeMenuMobile} className={`${router.pathname == '/clothes' ? styles['active'] : ''} ${styles['MenuMobile-main-item']}`}>
               <figure>
-                <Image src={clothesIcon} layout="fill" />
+                <Image src={clothesIcon} layout="fill" alt="" />
               </figure>
-              Ropa
+              Clothes
             </a>
           </Link>
         </li>
@@ -156,7 +156,7 @@ const MenuMobile = () => {
             <li>
               <button onClick={signOut} className={styles['MenuMobile-main-item']}>
                 <figure>
-                  <Image src={logOutIcon} layout="fill" />
+                  <Image src={logOutIcon} layout="fill" alt="" />
                 </figure>
                 Log out
               </button>

@@ -7,7 +7,7 @@ import { useSession } from 'next-auth/react';
 import userIcon from '@icons/user_icon.svg';
 import arrowDown from '@icons/arrow-down.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
-import NextJSIcon from '@icons/next-js.svg';
+import NextJSIcon from '@icons/next-js-icon.svg';
 import styles from '@styles/Nav.module.scss';
 
 export default function Nav() {
@@ -17,22 +17,30 @@ export default function Nav() {
   return (
     <nav className={styles['navbar']}>
       <Link href={'/'}>
-        <figure className={styles['navbar-logo']} title="Next Shop">
-          <Image src={NextJSIcon} layout="fill"></Image>
-        </figure>
+        <a href="dummy" className={styles['navbar-logo']} title="Next Shop">
+          <Image src={NextJSIcon} layout="fill" alt="" />
+        </a>
       </Link>
       <ul className={styles['navbar-left']}>
         <li className={styles[router.pathname == '/' ? 'active' : '']}>
-          <Link href="/">Inicio</Link>
+          <Link href="/">
+            <a href="dummy">Home</a>
+          </Link>
         </li>
         <li className={styles[router.pathname == '/toys' ? 'active' : '']}>
-          <Link href="/toys">Juguetes</Link>
+          <Link href="/toys">
+            <a href="dummy">Toys</a>
+          </Link>
         </li>
         <li className={styles[router.pathname == '/care-and-maternity' ? 'active' : '']}>
-          <Link href="/care-and-maternity">Cuidado</Link>
+          <Link href="/care-and-maternity">
+            <a href="dummy">Care</a>
+          </Link>
         </li>
         <li className={styles[router.pathname == '/clothes' ? 'active' : '']}>
-          <Link href="/clothes">Ropa</Link>
+          <Link href="/clothes">
+            <a href="dummy">Clothes</a>
+          </Link>
         </li>
       </ul>
 
@@ -40,15 +48,19 @@ export default function Nav() {
         {session?.user ? (
           <li className={styles['navbar-userName']}>
             <button onClick={() => toggleMenu()}>
-              <Image src={userIcon} width={25} height={25} />
+              <Image src={userIcon} width={25} height={25} alt="" />
               {`${session.user.name} ${session.user.lastName}`}
-              <Image src={arrowDown} width={20} height={10} />
+              <Image src={arrowDown} width={20} height={10} alt="" />
             </button>
           </li>
         ) : (
           <li className={styles['navbar-access']}>
-            <a href={'/login'}>Log in</a>
-            <a href={'/signup'}>Register</a>
+            <Link href={'/login'}>
+              <a href="dummy">Log in</a>
+            </Link>
+            <Link href={'/signup'}>
+              <a href="dummy">Register</a>
+            </Link>
           </li>
         )}
         <li>
