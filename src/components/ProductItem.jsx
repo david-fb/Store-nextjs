@@ -18,8 +18,8 @@ const ProductItem = ({ product }) => {
   return (
     <div className={styles['ProductItem']}>
       <Link href={`/product/${product.id}`}>
-        <a>
-          <Image src={product.image} alt={product.name} layout='fill' />
+        <a href="dummy">
+          <Image src={product.image} alt={product.name} layout="fill" />
         </a>
       </Link>
       <div className={styles['product-info']}>
