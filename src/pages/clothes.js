@@ -6,14 +6,14 @@ import endPoints from '@services/api';
 import Hero from '@components/Hero';
 
 export default function Clothes() {
-  const category = useFetch(endPoints.categories.getCategory(1));
+  const { data: category } = useFetch(endPoints.categories.getCategory(1));
   return (
     <>
       <Head>
         <title>Next Shop - Clothes</title>
       </Head>
-      <Hero image={MarshallImage.src} title={"Collection PawPatrol"} info={'Lorem Ipsum'} color={'red'} hasButton={true}/>
-      <ProductList products={category?.products} paddingTop={16}/>
+      <Hero image={MarshallImage.src} title={'Collection PawPatrol'} info={'Lorem Ipsum'} color={'red'} hasButton={true} />
+      <ProductList products={category?.products} paddingTop={16} />
     </>
   );
 }

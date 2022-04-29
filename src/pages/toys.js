@@ -6,14 +6,14 @@ import Hero from '@components/Hero';
 import ChaseImage from '@images/Chase.png';
 
 export default function Toys() {
-  const category = useFetch(endPoints.categories.getCategory(2));
+  const { data: category } = useFetch(endPoints.categories.getCategory(2));
   return (
     <>
       <Head>
         <title>Next Shop - Toys</title>
       </Head>
-      <Hero title={'Collection PawPatrol'} info={"Lorem ipsum"} image={ChaseImage.src} color={'blue-light'} hasButton={true}/>
-      <ProductList products={category?.products} paddingTop={14}/>
+      <Hero title={'Collection PawPatrol'} info={'Lorem ipsum'} image={ChaseImage.src} color={'blue-light'} hasButton={true} />
+      <ProductList products={category?.products} paddingTop={14} />
     </>
   );
 }

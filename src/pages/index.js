@@ -1,36 +1,22 @@
-import { useState, useEffect } from 'react';
 import ProductList from '@containers/ProductList';
 import Head from 'next/head';
 import CategoryList from '@containers/CategoryList';
-import axios from 'axios';
+import useFetch from '@hooks/useFetch';
 import endPoints from '@services/api';
 import Hero from '@components/Hero';
 import PawPatrolImage from '@images/PawPatrol2.png';
 
 export default function Home() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await axios(endPoints.products.allProducts);
-        setProducts(response?.data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    getProducts();
-  }, [])
+  const { data: products } = useFetch(endPoints.products.allProducts);
 
   return (
     <>
       <Head>
         <title>Next Shop</title>
       </Head>
-      <Hero title={'Collection PawPatrol'} info={'lorem Ipsum'} image={PawPatrolImage.src} hasButton={true}/>
+      <Hero title={'Collection PawPatrol'} info={'lorem Ipsum'} image={PawPatrolImage.src} hasButton={true} />
       <CategoryList />
-      <ProductList products={products?.rows} title={'Catalog'}/>
+      <ProductList products={products?.rows} title={'Catalog'} />
     </>
   );
 }
