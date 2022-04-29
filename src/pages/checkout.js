@@ -42,7 +42,7 @@ const Checkout = ({ token }) => {
       </Head>
       <div className={styles['Checkout']}>
         {alert?.active && <ConfirmAlert alert={alert} handleClose={toggleAlert} destination={'/orders'} />}
-        <SimpleHeader title={'Checkout'} image={bagsImage} color={'green'}/>
+        <SimpleHeader title={'Checkout'} image={bagsImage} color={'green'} />
         <div className={styles['Checkout-container']}>
           {loading && (
             <div className={styles['Checkout-loading']}>
@@ -50,7 +50,7 @@ const Checkout = ({ token }) => {
               <p>processing order...</p>
             </div>
           )}
-          {!loading && state?.cart.length > 0 && (
+          {!loading && state?.cart.length ? (
             <>
               <div className={styles['Checkout-content']}>
                 <h1 className={styles['title']}>My order</h1>
@@ -73,12 +73,13 @@ const Checkout = ({ token }) => {
                 </button>
               </div>
             </>
-          )}
-          {!loading && state?.cart.length === 0 && (
+          ) : (
             <div className={styles['checkout-noItems']}>
-              <p>There are no items added</p>
+              <p>No items added</p>
               <Link href={'/'}>
-                <a className={'primary-button'}>Explore</a>
+                <a href="dummy" className={'primary-button'}>
+                  Explore
+                </a>
               </Link>
             </div>
           )}
