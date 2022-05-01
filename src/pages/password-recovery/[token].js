@@ -47,7 +47,11 @@ export default function RecoveryToken({ token }) {
   }, [confirmPassword, newPassword]);
 
   const onSubmit = (data) => {
-    if (passwordsMatch) {
+    if (!confirmPassword || !newPassword) {
+      setPasswordsMatch(false);
+      return;
+    }
+    if (confirmPassword === newPassword) {
       changePasswordFromToken(data)
         .then((res) => {
           setTokenError(false);
@@ -63,6 +67,8 @@ export default function RecoveryToken({ token }) {
             setTokenError(true);
           }
         });
+    } else {
+      setPasswordsMatch(false);
     }
   };
 
