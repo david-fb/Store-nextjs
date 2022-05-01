@@ -14,6 +14,7 @@ const sendRecoveryMail = async (body) => {
     return response.status;
   } catch (error) {
     console.error(error);
+    return Promise.reject(error.response);
   }
 };
 

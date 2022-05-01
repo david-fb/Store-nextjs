@@ -19,6 +19,7 @@ const PasswordRecovery = () => {
   const HOSTNAME = process.env.NEXT_NEXT_PUBLIC_HOST_PROD ?? process.env.NEXT_PUBLIC_HOST_DEV;
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const {
     register,
@@ -33,14 +34,20 @@ const PasswordRecovery = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    sendRecoveryMail(data).then((status) => {
-      if (status === 200) {
-        setIsLoading(false);
-        setIsEmailSent(true);
-      } else {
-        setIsLoading(false);
-      }
-    });
+    sendRecoveryMail(data)
+      .then((status) => {
+        if (status === 200) {
+          setIsLoading(false);
+          setIsEmailSent(true);
+          setIsError(false);
+        }
+      })
+      .catch((err) => {
+        if (err.status) {
+          setIsLoading(false);
+          setIsError(true);
+        }
+      });
   };
 
   return (
@@ -63,11 +70,12 @@ const PasswordRecovery = () => {
                 Email address
               </label>
               <input {...register('email')} type="text" id="email" className={styles['input'] + ' ' + styles['input-email']} />
-              <p>{errors?.email?.message}</p>
+              <p className="error-message">{errors?.email?.message}</p>
               <button type="submit" className={`primary-button ${styles['button-confirm']}`}>
                 Confirm
               </button>
             </form>
+            {isError && <p className="error-message">Email is not registered</p>}
           </div>
         )}
         {isEmailSent && !isLoading && (
@@ -76,7 +84,7 @@ const PasswordRecovery = () => {
             <p className={styles['subtitle']}>Please check your inbox for instructions on how to reset the password</p>
             <div className={styles['email-image']}>
               <figure>
-                <Image src={email.src} alt="email" layout="fill" />
+                <Image src={email} alt="email" layout="fill" />
               </figure>
             </div>
             <Link href="/login">
