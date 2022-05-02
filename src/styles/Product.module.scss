@@ -5,21 +5,19 @@
   width: 80%;
   align-self: center;
   margin-bottom: 20px;
+  &-title {
+    font-size: $--lg + 20px;
+    text-transform: capitalize;
+  }
 }
 
 .Product-content {
   display: flex;
-  margin-top: 100px;
 
   .Product-Image {
-    height: 600px;
     width: 50%;
-	position: relative;
-
-    img {
-      height: 100%;
-	  max-width: 100%;
-    }
+    aspect-ratio: 1 / 1;
+    position: relative;
   }
 
   .Product-info {
@@ -28,11 +26,7 @@
     flex-direction: column;
     padding-left: 100px;
     gap: 5px;
-	position: relative;
-
-    h2 {
-      font-size: $--lg + 15px;
-    }
+    position: relative;
 
     .Price {
       font-size: $--lg + 10px;
@@ -86,21 +80,44 @@
 }
 
 .img-zoom-result {
-  border: 1px solid #d4d4d4;
+  border: 1px solid $--dark-gray;
   /*set the size of the result div:*/
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  aspect-ratio: 1 / 1;
   position: absolute;
-  right: 0;
-  top: 40px;
+  left: 100px;
+  top: 0;
   display: none;
+  box-shadow: 0px 0px 12px rgba($color: $--dark-gray, $alpha: 0.28);
+  overflow: hidden;
+
+  figure {
+    /*the size is defined depending on the size of the main image, defined in the component*/
+    background-color: $--white;
+    position: relative;
+  }
 }
 
 .img-zoom-lens {
-  width: 100px;
-  height: 100px;
-  background-color: rgba($color: #000000, $alpha: .5);
+  width: 150px;
+  aspect-ratio: 1 / 1;
+  background-color: rgba($color: #000000, $alpha: 0.5);
   position: absolute;
   cursor: zoom-in;
   display: none;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .img-zoom-result {
+    width: 300px;
+  }
+  .img-zoom-lens {
+    width: 100px;
+  }
+  .Product-container {
+    &-title {
+      font-size: $--lg + 15px;
+    }
+  }
 }
