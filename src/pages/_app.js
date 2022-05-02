@@ -5,7 +5,7 @@ import { SessionProvider } from 'next-auth/react';
 import '@styles/globals.scss';
 import Footer from '@components/Footer';
 
-function MyApp({ Component, pageProps: { session, ...pageProps} }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const initialState = useInitialState();
   return (
     <SessionProvider session={session}>

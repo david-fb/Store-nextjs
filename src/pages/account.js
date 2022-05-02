@@ -21,11 +21,11 @@ const MyAccount = ({ user, token }) => {
     resolver: joiResolver(updateCustomerSchema),
   });
 
-  useEffect(()=> {
-    if(!isEdit){
+  useEffect(() => {
+    if (!isEdit) {
       reset();
     }
-  }, [isEdit])
+  }, [isEdit]);
 
   const onSubmit = (data) => {
     updateCustomer(user?.id, data, token)

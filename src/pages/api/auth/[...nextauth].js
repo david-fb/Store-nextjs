@@ -57,7 +57,7 @@ export default NextAuth({
       return token;
     },
     async session({ session, token }) {
-      const { data: customer} = await axios(endPoints.users.getCustomer(token.user.id));
+      const { data: customer } = await axios(endPoints.users.getCustomer(token.user.id));
       session.user = customer;
       session.token = token.accessToken;
       return session;
