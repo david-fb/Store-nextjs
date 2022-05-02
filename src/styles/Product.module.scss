@@ -137,6 +137,10 @@
     .Product-info {
       width: 100%;
       padding-left: 0px;
+      
+      h3 {
+        margin-top: 30px;
+      }
     }
   }
 }
@@ -159,15 +163,6 @@
   
       .Price {
         font-size: $--lg + 5px;
-      }
-  
-      h3 {
-        margin-top: 30px;
-        font-size: $--lg;
-      }
-      .Description {
-        font-size: $--sm;
-        text-align: justify;
       }
     }
   }
