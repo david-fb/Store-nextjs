@@ -8,6 +8,7 @@ import userIcon from '@icons/user_icon.svg';
 import arrowDown from '@icons/arrow-down.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import NextJSIcon from '@icons/next-js-icon.svg';
+import Menu from '@components/Menu';
 import styles from '@styles/Nav.module.scss';
 
 export default function Nav() {
@@ -47,11 +48,12 @@ export default function Nav() {
       <ul className={styles['navbar-right']}>
         {session?.user ? (
           <li className={styles['navbar-userName']}>
-            <button onClick={() => toggleMenu()}>
+            <button onClick={() => toggleMenu()} className={styles['navbar-userName-toggleMenu']}>
               <Image src={userIcon} width={25} height={25} alt="" />
               {`${session.user.name} ${session.user.lastName}`}
               <Image src={arrowDown} width={20} height={10} alt="" />
             </button>
+            {state.menuIsOpen && <Menu />}
           </li>
         ) : (
           <li className={styles['navbar-access']}>

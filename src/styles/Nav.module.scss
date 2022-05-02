@@ -53,8 +53,10 @@
   border-end-start-radius: 45%;
   border-end-end-radius: 45%;
 }
-
-.navbar-userName button {
+.navbar-userName {
+  position: relative;
+}
+.navbar-userName-toggleMenu {
   display: inline-flex;
   align-items: center;
   justify-items: center;

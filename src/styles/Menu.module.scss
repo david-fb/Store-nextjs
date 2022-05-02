@@ -1,28 +1,28 @@
 @import 'vars';
 
 .Menu {
-	width: 130px;
-	padding: 3px 0px;
-	height: auto;
-	border: 1px solid $--very-light-pink;
-	border-radius: 6px;
-	position: absolute;
-	top: 60px;
-	right: 50px;
-	background-color: $--white;
+  width: 130px;
+  padding: 3px 0px;
+  height: auto;
+  border: 1px solid $--very-light-pink;
+  border-radius: 6px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: $--white;
 }
 .Menu-item {
-	padding: 10px 20px;
-	font-size: $--sm;
-	width: 100%;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+  padding: 10px 20px;
+  font-size: $--sm;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .Menu-item:last-child {
-	border-top: 1px solid $--very-light-pink;
+  border-top: 1px solid $--very-light-pink;
 }
 
 .Menu-item:hover {
-	background: $--primary-btn-light-color;
+  background: $--primary-btn-light-color;
 }
