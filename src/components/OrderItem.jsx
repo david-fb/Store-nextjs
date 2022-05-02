@@ -5,22 +5,22 @@ import close from '@icons/icon_close.png';
 import styles from '@styles/OrderItem.module.scss';
 
 const OrderItem = ({ product }) => {
-	const { removeFromCart } = useContext(AppContext);
+  const { removeFromCart } = useContext(AppContext);
 
-	const handleRemove = product => {
-		removeFromCart(product);
-	};
+  const handleRemove = (product) => {
+    removeFromCart(product);
+  };
 
-	return (
-		<div className={styles.OrderItem}>
-			<figure>
-				<Image src={product?.image} alt={product?.name} width={70} height={70}/>
-			</figure>
-			<p>{product?.name}</p>
-			<p>${product?.price}</p>
-			<Image className={styles["pointer", "more-clickable-area"]} src={close} alt="close" onClick={() => handleRemove(product)} />
-		</div>
-	);
+  return (
+    <div className={styles.OrderItem}>
+      <figure>
+        <Image src={product?.image} alt={product?.name} width={70} height={70} />
+      </figure>
+      <p>{product?.name}</p>
+      <p>${product?.price}</p>
+      <Image className={'pointer'} src={close} alt="close" onClick={() => handleRemove(product)} />
+    </div>
+  );
 };
 
 export default OrderItem;

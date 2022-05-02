@@ -31,17 +31,14 @@ const MyOrder = () => {
                 <p>${sumTotal()}</p>
               </div>
               <Link href="/checkout">
-                <a className={'primary-button' + ' ' + styles['MyOrder-checkout']}>
+                <a href="dummy" className={'primary-button' + ' ' + styles['MyOrder-checkout']}>
                   Checkout
                 </a>
               </Link>
             </>
-          )
-          : 
-          (
-            <p className={styles["empty-cart-text"]}>Cart is empty</p>
-          )
-          }
+          ) : (
+            <p className={styles['empty-cart-text']}>Cart is empty</p>
+          )}
         </div>
       </div>
     </aside>
