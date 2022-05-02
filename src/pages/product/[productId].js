@@ -1,5 +1,5 @@
 import endPoints from '@services/api';
-import { useContext, useRef, useState } from 'react';
+import { useContext, useRef, useState, useEffect } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import axios from 'axios';
@@ -16,11 +16,22 @@ export default function Product({ product }) {
     }
   };
   // Image zoom
+  const [windowSize, setWindowSize] = useState(null);
+  useEffect(() => {
+    setWindowSize(window.innerWidth <= 890);
+    const handleResize = () => {
+      setWindowSize(window.innerWidth <= 890);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [windowSize]);
+
   const resultRef = useRef(null);
   const lensRef = useRef(null);
   const imgRef = useRef(null);
   const resultImageRef = useRef(null);
   const handleZoom = (e) => {
+    if (windowSize) return;
     lensRef.current.style.display = 'block';
     resultRef.current.style.display = 'block';
     let result = resultRef.current;
@@ -98,7 +109,7 @@ export default function Product({ product }) {
         <div className={styles['Product-content']}>
           <div ref={imgRef} className={styles['Product-Image']}>
             <div ref={lensRef} onMouseMove={handleZoom} onMouseLeave={handleMouseLeave} className={styles['img-zoom-lens']}></div>
-            <Image onMouseMove={handleZoom} src={product.image} alt={product.name} layout="fill" objectFit="contain" />
+            <Image onMouseMove={handleZoom} src={product.image} priority alt={product.name} layout="fill" objectFit="contain" />
           </div>
           <div className={styles['Product-info']}>
             <p className={styles['Price']}>${product.price}</p>
