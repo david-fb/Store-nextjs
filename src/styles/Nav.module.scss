@@ -56,6 +56,10 @@
 .navbar-userName {
   position: relative;
 }
+.navbar-userNameLoading div{
+  margin-bottom: 18px;
+  font-size: $--sm;
+}
 .navbar-userName-toggleMenu {
   display: inline-flex;
   align-items: center;

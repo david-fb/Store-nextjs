@@ -9,11 +9,12 @@ import arrowDown from '@icons/arrow-down.svg';
 import shoppingCart from '@icons/icon_shopping_cart.svg';
 import NextJSIcon from '@icons/next-js-icon.svg';
 import Menu from '@components/Menu';
+import NavbarUserNameLoading from './skeletonLoading/navbarUserName';
 import styles from '@styles/Nav.module.scss';
 
 export default function Nav() {
   const { state, toggleOrder, toggleMenu } = useContext(AppContext);
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
   return (
     <nav className={styles['navbar']}>
@@ -46,7 +47,12 @@ export default function Nav() {
       </ul>
 
       <ul className={styles['navbar-right']}>
-        {session?.user ? (
+        {status === 'loading' && (
+          <li className={styles['navbar-userNameLoading']}>
+            <NavbarUserNameLoading />
+          </li>
+        )}
+        {session?.user && status !== 'loading' && (
           <li className={styles['navbar-userName']}>
             <button onClick={() => toggleMenu()} className={styles['navbar-userName-toggleMenu']}>
               <Image src={userIcon} width={25} height={25} alt="" />
@@ -55,7 +61,8 @@ export default function Nav() {
             </button>
             {state.menuIsOpen && <Menu />}
           </li>
-        ) : (
+        )}
+        {!session?.user && status !== 'loading' && (
           <li className={styles['navbar-access']}>
             <Link href={'/login'}>
               <a href="dummy">Log in</a>
