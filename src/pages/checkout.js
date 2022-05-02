@@ -50,7 +50,7 @@ const Checkout = ({ token }) => {
               <p>processing order...</p>
             </div>
           )}
-          {!loading && state?.cart.length ? (
+          {!loading && state?.cart.length && (
             <>
               <div className={styles['Checkout-content']}>
                 <h1 className={styles['title']}>My order</h1>
@@ -73,7 +73,8 @@ const Checkout = ({ token }) => {
                 </button>
               </div>
             </>
-          ) : (
+          )}
+          {!loading && !state?.cart.length && (
             <div className={styles['checkout-noItems']}>
               <p>No items added</p>
               <Link href={'/'}>
