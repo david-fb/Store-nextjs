@@ -7,7 +7,7 @@ export default function Hero({ title, info, color, image, hasButton, textButton 
   if (!title) title = 'Default title';
   if (!info) info = 'Lorem Ipsum';
   if (!image) image = PawPatrolImage;
-  if (!textButton) textButton = 'MORE DETAILS'
+  if (!textButton) textButton = 'MORE DETAILS';
   return (
     <div className={styles['header-container'] + ' ' + styles[`bg-${color}`]}>
       <div className={styles['header-content']}>
@@ -17,7 +17,7 @@ export default function Hero({ title, info, color, image, hasButton, textButton 
           {hasButton && <button className="primary-button">{textButton}</button>}
         </div>
         <figure>
-          <Image src={image} layout='fill' priority objectFit='scale-down'/>
+          <Image src={image} layout="fill" priority objectFit="contain" alt="" />
         </figure>
       </div>
     </div>
