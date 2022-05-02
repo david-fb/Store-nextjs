@@ -9,10 +9,12 @@
   background-color: $--white;
   top: 0;
   bottom: 0;
-  border-radius: 6px;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
   border: 1px solid $--very-light-pink;
   z-index: 1;
   overflow-y: auto;
+  animation: menuIn 0.3s ease-in-out;
 }
 .title-container {
   display: flex;
@@ -82,5 +84,27 @@
 @media (max-width: 640px) {
   .MyOrder {
     width: 100%;
+  }
+}
+//Animation in/out
+.menuOut {
+  animation: menuOut 0.3s ease-in-out;
+}
+
+@keyframes menuIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes menuOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
   }
 }

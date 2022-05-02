@@ -16,7 +16,7 @@ import logOutIcon from '@icons/logOut-icon.svg';
 import styles from '@styles/MenuMobile.module.scss';
 
 const MenuMobile = () => {
-  const { toggleOrder, state, toggleMenuMobile, toggleMenu } = useContext(AppContext);
+  const { state, toggleMenuMobile, toggleMenu } = useContext(AppContext);
   const { data: session } = useSession();
   const [windowSize, setWindowSize] = useState(window.innerWidth <= 799);
   const router = useRouter();
@@ -29,9 +29,6 @@ const MenuMobile = () => {
     }, 300);
   };
   useEffect(() => {
-    if (state.orderIsOpen) {
-      toggleOrder();
-    }
     if (state.menuIsOpen) {
       toggleMenu();
     }

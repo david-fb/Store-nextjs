@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import OrderItem from '@components/OrderItem';
@@ -7,13 +7,37 @@ import arrow from '@icons/flechita.svg';
 import styles from '@styles/MyOrder.module.scss';
 
 const MyOrder = () => {
-  const { state, toggleOrder, sumTotal } = useContext(AppContext);
+  const { state, toggleOrder, sumTotal, toggleMenu } = useContext(AppContext);
+  const myOrderRef = useRef();
+
+  const closeMyOrder = () => {
+    myOrderRef.current.classList.add(styles['menuOut']);
+    setTimeout(() => {
+      toggleOrder();
+    }, 300);
+  };
+  useEffect(() => {
+    if (state.menuIsOpen) {
+      toggleMenu();
+    }
+    const handleClickOutside = (e) => {
+      if (state.orderIsOpen && myOrderRef.current && !myOrderRef.current.contains(e.target)) {
+        closeMyOrder();
+      }
+    };
+    //add event listener
+    document.addEventListener('click', handleClickOutside);
+    //clear event
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <aside className={styles.MyOrder}>
+    <aside className={styles.MyOrder} ref={myOrderRef}>
       <div className={styles['MyOrder-container']}>
         <div className={styles['title-container']}>
-          <Image className={styles['pointer']} src={arrow} alt="arrow" onClick={() => toggleOrder()} />
+          <Image className={styles['pointer']} src={arrow} alt="arrow" onClick={closeMyOrder} />
           <p className={styles['title']}>My order</p>
         </div>
         <div className={styles['my-order-content']}>

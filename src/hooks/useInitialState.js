@@ -40,9 +40,11 @@ const useInitialState = () => {
   };
 
   const toggleOrder = () => {
-    setState({
-      ...state,
-      orderIsOpen: !state.orderIsOpen,
+    setState((state) => {
+      return {
+        ...state,
+        orderIsOpen: !state.orderIsOpen,
+      };
     });
   };
 
